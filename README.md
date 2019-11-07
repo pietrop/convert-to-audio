@@ -1,15 +1,52 @@
-## Brief of the project
+## Convert To Audio
 <!-- _One liner + link to confluence page_
 _Screenshot of UI - optional_ -->
+Node ffmpeg wrapper to convert audio or video file to an audio file that meets STT specs
 
 ## Setup
 <!-- _stack - optional_
 _How to build and run the code/app_ -->
 
+```
+git clone git@github.com:pietrop/convert-to-audio.git
+```
+```
+cd convert-to-audio
+```
+```
+npm install
+```
+
 ## Usage
+
+```js
+const convertToAudio = require('convert-to-wav');
+
+const url = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const audioFileOutput = './ted-talk.wav';
+
+convertToAudio(url, audioFileOutput)
+  .then((newFile) => {
+    console.log(newFile);
+  })
+  .catch((err)=>{
+    console.error(err)
+  })
+```
+Or with async await, inside an async block
+```js
+const convertToAudio = require('convert-to-wav');
+
+const url = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const audioFileOutput = './ted-talk.wav';
+// inside an async function 
+const newFile = await convertToAudio(url, audioFileOutput)
+```
 
 ## System Architecture
 <!-- _High level overview of system architecture_ -->
+
+Uses ffmpeg, and fluent ffmpeg to convert to audio, wav.
 
 <!-- ## Documentation
 
@@ -26,20 +63,30 @@ We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc
 ## Development env
  <!-- _How to run the development environment_ -->
 
-<!-- - npm > `6.1.0`
+- npm > `6.1.0`
 - [Node 10 - dubnium](https://scotch.io/tutorials/whats-new-in-node-10-dubnium)
 
-Node version is set in node version manager [`.nvmrc`](https://github.com/creationix/nvm#nvmrc) -->
+Node version is set in node version manager [`.nvmrc`](https://github.com/creationix/nvm#nvmrc)
 
 <!-- _Coding style convention ref optional, eg which linter to use_ -->
 
 <!-- _Linting, github pre-push hook - optional_ -->
 
+
+
 ## Build
 <!-- _How to run build_ -->
+
+_NA_
 
 ## Tests
 <!-- _How to carry out tests_ -->
 
+_NA_
+
 ## Deployment
 <!-- _How to deploy the code/app into test/staging/production_ -->
+
+```
+npm run publish
+```
