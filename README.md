@@ -91,5 +91,5 @@ _NA_
 <!-- _How to deploy the code/app into test/staging/production_ -->
 
 ```
-npm run publish
+npm run publish:public
 ```
