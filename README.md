@@ -18,6 +18,9 @@ npm install
 ```
 
 ## Usage
+```
+npm install convert-to-wav
+```
 
 ```js
 const convertToAudio = require('convert-to-wav');
