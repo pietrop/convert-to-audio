@@ -3,6 +3,8 @@
 _Screenshot of UI - optional_ -->
 Node ffmpeg wrapper to convert audio or video file to an audio file that meets STT specs
 
+Originally from [autoEdit2](https://github.com/OpenNewsLabs/autoEdit_2/blob/master/lib/interactive_transcription_generator/transcriber/convert_to_audio.js) and [DPE](https://github.com/bbc/digital-paper-edit-audio-converter/blob/master/lib/convert-to-audio/index.js)
+
 ## Setup
 <!-- _stack - optional_
 _How to build and run the code/app_ -->
@@ -49,7 +51,7 @@ const newFile = await convertToAudio(url, audioFileOutput)
 ## System Architecture
 <!-- _High level overview of system architecture_ -->
 
-Uses ffmpeg, and fluent ffmpeg to convert to audio, wav.
+Uses ffmpeg binary, and fluent ffmpeg to convert to audio, wav.
 
 <!-- ## Documentation
 
