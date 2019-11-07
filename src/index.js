@@ -1,4 +1,5 @@
 // originally from https://github.com/OpenNewsLabs/autoEdit_2/blob/master/lib/interactive_transcription_generator/transcriber/convert_to_audio.js
+// https://github.com/bbc/digital-paper-edit-audio-converter/blob/master/lib/convert-to-audio/index.js
 
 /**
 * @module convertToAudio
