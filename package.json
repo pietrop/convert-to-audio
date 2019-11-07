@@ -1,10 +1,12 @@
 {
   "name": "convert-to-audio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node ffmpeg wrapper to convert audio or video file to an audio file that meets STT specs",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish:public": "npm publish --access public",
+    "publish:dry:run": "npm publish --dry-run"
   },
   "author": "",
   "license": "MIT",
