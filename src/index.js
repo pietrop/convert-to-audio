@@ -63,6 +63,8 @@ function convertToAudio(file, audioFileOutput) {
   });
 }
 
+// Will NOT work for MP4 Streams
+// https://stackoverflow.com/questions/23002316/ffmpeg-pipe0-could-not-find-codec-parameters/40028894#40028894
 function convertStreamToAudio(inputStream, outputStream) {
   return new Promise((resolve, reject) => {
     ffmpeg(inputStream)
@@ -71,13 +73,30 @@ function convertStreamToAudio(inputStream, outputStream) {
       .audioChannels(1)
       .toFormat("wav")
       .audioFrequency(16000)
-      .on("end", () => {
-        resolve();
+      .on("start", cmd => {
+        console.log("Started " + cmd);
       })
-      .on("error", err => {
+      .on("codecData", function(data) {
+        console.log(
+          "Input is " + data.audio + " audio " + "with " + data.video + " video"
+        );
+      })
+      .on("error", function(err, stdout, stderr) {
+        console.log(err.message); //this will likely return "code=1" not really useful
+        console.log("stdout:\n" + stdout);
+        console.log("stderr:\n" + stderr); //this will contain more detailed debugging info
         reject(err);
       })
-      .pipe(outputStream);
+      .on("progress", function(progress) {
+        console.log(progress);
+        console.log("Processing: " + progress.percent + "% done");
+      })
+      .on("end", function(stdout, stderr) {
+        console.log(stdout, stderr);
+        console.log("Transcoding succeeded !");
+        resolve();
+      })
+      .pipe(outputStream, { end: true });
   });
 }
 
