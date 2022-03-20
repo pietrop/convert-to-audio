@@ -1,6 +1,6 @@
 {
-  "name": "convert-to-audio",
-  "version": "1.0.0",
+  "name": "@bbc/convert-to-audio",
+  "version": "1.2.0",
   "description": "Node ffmpeg wrapper to convert audio or video file to an audio file that meets STT specs",
   "main": "src/index.js",
   "scripts": {
